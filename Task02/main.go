@@ -17,8 +17,8 @@ func main() {
 	for i, v := range arr { // Бежим циклом по каждому элементу массива.
 		wg.Add(1)           // Увеличиваем счетчик.
 		go func(i, v int) { // Запускаем анонимную функцию в отдельной горутине.
-			defer wg.Done()                                                     // Объявяем отложенную функцию для ученьшения счетчика.
-			fmt.Printf("Goroutine %d is finish. Result - %d. \n", i, square(v)) // Выводил результат в stdout.
+			defer wg.Done()                                                     // Объявляем отложенную функцию для уменьшения счетчика.
+			fmt.Printf("Goroutine %d is finish. Result - %d. \n", i, square(v)) // Выводим результат в stdout.
 		}(i, v)
 	}
 	wg.Wait() // Ожидаем завершения всех горутин из группы wg
